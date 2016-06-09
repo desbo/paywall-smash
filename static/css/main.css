@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0; }
+
+iframe, main {
+  border: 0;
+  width: 100%;
+  height: 100%; }
+
+main {
+  position: absolute;
+  top: 0;
+  right: 0; }
+
+.wall {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch; }
+
+.brick {
+  border: 2px solid tan;
+  background: #aa3311;
+  flex: 1 0 71.66667px;
+  height: 21.66667px;
+  opacity: 1;
+  transition: opacity 0ms ease-in-out; }
+  .brick.destroyed {
+    opacity: 0; }

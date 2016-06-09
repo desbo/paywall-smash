@@ -1,0 +1,90 @@
+{
+  "author": {
+    "name": "Ben Newman",
+    "email": "bn@cs.stanford.edu"
+  },
+  "name": "commoner",
+  "description": "Flexible tool for translating any dialect of JavaScript into Node-readable CommonJS modules",
+  "keywords": [
+    "modules",
+    "require",
+    "commonjs",
+    "exports",
+    "commoner",
+    "browserify",
+    "stitch"
+  ],
+  "version": "0.10.4",
+  "license": "MIT",
+  "homepage": "http://github.com/reactjs/commoner",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/reactjs/commoner.git"
+  },
+  "main": "main.js",
+  "files": [
+    "bin",
+    "lib",
+    "main.js"
+  ],
+  "bin": {
+    "commonize": "./bin/commonize"
+  },
+  "scripts": {
+    "test": "rm -rf test/output ; node ./node_modules/mocha/bin/mocha --reporter spec test/run.js"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  },
+  "engines": {
+    "node": ">= 0.8"
+  },
+  "gitHead": "b80aad63cf4df467fbdf7e07b0f0d4b0d95281c3",
+  "bugs": {
+    "url": "https://github.com/reactjs/commoner/issues"
+  },
+  "_id": "commoner@0.10.4",
+  "_shasum": "98f3333dd3ad399596bb2d384a783bb7213d68f8",
+  "_from": ".",
+  "_npmVersion": "3.3.9",
+  "_nodeVersion": "0.10.38",
+  "_npmUser": {
+    "name": "benjamn",
+    "email": "bn@cs.stanford.edu"
+  },
+  "maintainers": [
+    {
+      "name": "benjamn",
+      "email": "bn@cs.stanford.edu"
+    }
+  ],
+  "dist": {
+    "shasum": "98f3333dd3ad399596bb2d384a783bb7213d68f8",
+    "tarball": "https://registry.npmjs.org/commoner/-/commoner-0.10.4.tgz"
+  },
+  "format": "cjs",
+  "ignore": [
+    "node_modules"
+  ],
+  "registry": "npm",
+  "dependencies": {
+    "commander": "commander@^2.5.0",
+    "detective": "detective@^4.3.1",
+    "glob": "glob@^5.0.15",
+    "graceful-fs": "graceful-fs@^4.1.2",
+    "iconv-lite": "iconv-lite@^0.4.5",
+    "mkdirp": "mkdirp@^0.5.0",
+    "private": "private@^0.1.6",
+    "q": "q@^1.1.2",
+    "recast": "recast@^0.10.0",
+    "assert": "github:jspm/nodelibs-assert@^0.1.0",
+    "fs": "github:jspm/nodelibs-fs@^0.1.0",
+    "path": "github:jspm/nodelibs-path@^0.1.0",
+    "events": "github:jspm/nodelibs-events@^0.1.0",
+    "systemjs-json": "github:systemjs/plugin-json@^0.1.0",
+    "process": "github:jspm/nodelibs-process@^0.1.0",
+    "child_process": "github:jspm/nodelibs-child_process@^0.1.0",
+    "crypto": "github:jspm/nodelibs-crypto@^0.1.0",
+    "buffer": "github:jspm/nodelibs-buffer@^0.1.0"
+  }
+}
