@@ -619,16 +619,17 @@ System.register("npm:babel-runtime@5.8.38/core-js/object/keys", ["npm:core-js@0.
   return module.exports;
 });
 
-System.register("js/socket", [], function (_export) {
-  "use strict";
+System.register('js/socket', [], function (_export) {
+  'use strict';
 
-  var socket;
+  var host, socket;
   return {
     setters: [],
     execute: function () {
-      socket = io.connect(window.location.hostname + ":3000");
+      host = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+      socket = io.connect(host);
 
-      _export("default", socket);
+      _export('default', socket);
     }
   };
 });
