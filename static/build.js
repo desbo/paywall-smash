@@ -655,6 +655,14 @@ System.register('js/components/brick.jsx!github:floatdrop/plugin-jsx@1.2.1', ['j
         componentDidMount: function componentDidMount() {
           var _this = this;
 
+          socket.on('reset', function () {
+            return _this.setState({
+              destroyed: false,
+              destroyer: '',
+              showName: false
+            });
+          });
+
           socket.on('smash', function (event) {
             if (event.destroyed.indexOf(_this.props.num) !== -1) {
               _this.setState({ destroyed: true });

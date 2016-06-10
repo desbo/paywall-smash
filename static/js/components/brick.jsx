@@ -12,6 +12,14 @@ const Brick = React.createClass({
   },
 
   componentDidMount: function() {
+    socket.on('reset', () => {
+      return this.setState({
+        destroyed: false,
+        destroyer: '',
+        showName: false
+      });
+    });
+
     socket.on('smash', event => {
       if (event.destroyed.indexOf(this.props.num) !== -1) {
         this.setState({ destroyed: true });
