@@ -30,15 +30,18 @@ main
   background: #aa3311
   flex: 1 0 $brick-width / $brick-shrink
   height: $brick-height / $brick-shrink
-  opacity: 1
-  transition: opacity 25ms ease-in-out
+  transition: all 25ms ease-in-out
+  text-align:  center
+  font-family: arial
+  color: hotpink
 
   &:hover
    cursor: pointer
    background-color: grey
 
   &.destroyed
-    opacity: 0
+    border: 0
+    background: 0
 
   &.offset
     position: relative;

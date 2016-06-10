@@ -685,8 +685,10 @@ System.register('js/components/brick.jsx!github:floatdrop/plugin-jsx@1.2.1', ['j
         },
 
         handleClick: function handleClick() {
-          this.setState({ destroyed: true });
-          this.props.onClick();
+          if (!this.state.destroyed) {
+            this.setState({ destroyed: true });
+            this.props.onClick();
+          }
         },
 
         render: function render() {
@@ -694,7 +696,7 @@ System.register('js/components/brick.jsx!github:floatdrop/plugin-jsx@1.2.1', ['j
           var offset = row % 2 === 0;
 
           return React.createElement("div", { className: 'brick ' + (this.props.destroyed || this.state.destroyed ? 'destroyed ' : '') + (offset ? 'offset' : ''),
-            onClick: this.handleClick });
+            onClick: this.handleClick }, React.createElement("span", { className: "player-name" }, this.state.showName && this.state.destroyer));
         }
       });
 

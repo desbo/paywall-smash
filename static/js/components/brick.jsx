@@ -36,14 +36,16 @@ const Brick = React.createClass({
           this.setState({
             showName: false
           })
-        }, 1000)
+        }, 1000);
       }
     });
   },
 
   handleClick() {
-    this.setState({ destroyed: true });
-    this.props.onClick();
+    if (!this.state.destroyed) {
+      this.setState({ destroyed: true });
+      this.props.onClick();
+    }
   },
 
   render: function() {
@@ -52,7 +54,9 @@ const Brick = React.createClass({
 
     return (
       <div className={'brick ' + ((this.props.destroyed || this.state.destroyed) ? 'destroyed ' : '') + (offset ? 'offset' : '')}
-           onClick={this.handleClick}></div>
+           onClick={this.handleClick}>
+           <span className="player-name">{this.state.showName && this.state.destroyer}</span>
+      </div>
     );
   }
 });

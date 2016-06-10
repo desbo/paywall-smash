@@ -26,13 +26,16 @@ main {
   background: #aa3311;
   flex: 1 0 7%;
   height: 5%;
-  opacity: 1;
-  transition: opacity 25ms ease-in-out; }
+  transition: all 25ms ease-in-out;
+  text-align: center;
+  font-family: arial;
+  color: hotpink; }
   .brick:hover {
     cursor: pointer;
     background-color: grey; }
   .brick.destroyed {
-    opacity: 0; }
+    border: 0;
+    background: 0; }
   .brick.offset {
     position: relative;
     left: 3.5%; }
