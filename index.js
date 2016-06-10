@@ -8,7 +8,7 @@ const io = require('socket.io')(server);
 
 let scores = {};
 let destroyed = [];
-let active = true;
+let active = false;
 
 app.use(express.static('static'));
 app.set('view engine', 'pug');
