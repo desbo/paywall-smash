@@ -14,8 +14,7 @@
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-react": "^5.1.1",
     "gulp-babel": "^6.1.2",
-    "gulp-sass": "^2.3.1",
-    "socket.io": "^1.4.6"
+    "gulp-sass": "^2.3.1"
   },
   "dependencies": {
     "socket.io": "^1.4.6", 
