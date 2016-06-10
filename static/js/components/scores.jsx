@@ -1,4 +1,4 @@
-
+const price = pence => pence / 100;
 
 const Scores = React.createClass({
   render() {
@@ -14,10 +14,10 @@ const Scores = React.createClass({
 
     return (
       <div className="scores">
-        <h1>TOTAL DONATIONS: £{total}</h1>
+        <h1>TOTAL DONATIONS: £{price(total)}</h1>
 
         <ol>
-          {players.map(player => <li>{player + ': £' + scores[player]}</li>)}
+          {players.map(player => <li>{player + ': £' + price(scores[player])}</li>)}
         </ol>
       </div>
     );

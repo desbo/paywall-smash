@@ -739,7 +739,7 @@ System.register('js/components/name.jsx!github:floatdrop/plugin-jsx@1.2.1', ['js
   };
 });
 System.register("js/components/scores.jsx!github:floatdrop/plugin-jsx@1.2.1", ["npm:babel-runtime@5.8.38/core-js/object/keys"], function (_export) {
-  var _Object$keys, Scores;
+  var _Object$keys, price, Scores;
 
   return {
     setters: [function (_npmBabelRuntime5838CoreJsObjectKeys) {
@@ -747,6 +747,10 @@ System.register("js/components/scores.jsx!github:floatdrop/plugin-jsx@1.2.1", ["
     }],
     execute: function () {
       "use strict";
+
+      price = function price(pence) {
+        return pence / 100;
+      };
 
       Scores = React.createClass({ displayName: "Scores",
         render: function render() {
@@ -760,8 +764,8 @@ System.register("js/components/scores.jsx!github:floatdrop/plugin-jsx@1.2.1", ["
             return total + scores[player];
           }, 0);
 
-          return React.createElement("div", { className: "scores" }, React.createElement("h1", null, "TOTAL DONATIONS: £", total), React.createElement("ol", null, players.map(function (player) {
-            return React.createElement("li", null, player + ': £' + scores[player]);
+          return React.createElement("div", { className: "scores" }, React.createElement("h1", null, "TOTAL DONATIONS: £", price(total)), React.createElement("ol", null, players.map(function (player) {
+            return React.createElement("li", null, player + ': £' + price(scores[player]));
           })));
         }
       });
