@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/controls', (req, res) => {
-  res.render('controls');
+  res.render('controls', { env: process.env.NODE_ENV });
 });
 
 const port = process.env.PORT || 3000;
