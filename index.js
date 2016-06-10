@@ -14,6 +14,10 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/master', (req, res) => {
+  res.render('master');
+});
+
 server.listen(3000, () => console.log('running on 3000'));
 
 function score(name) {
@@ -25,7 +29,7 @@ function destroy(brick) {
 }
 
 io.on('connection', function (socket) {
-  io.emit('init', { destroyed: destroyed });
+  socket.emit('init', { destroyed: destroyed });
 
   socket.on('smash', function (data) {
     score(data.player);
@@ -35,7 +39,8 @@ io.on('connection', function (socket) {
 
     io.emit('smash', {
       brick: data.brick,
-      player: data.player
+      player: data.player,
+      destroyed: destroyed
     });
   });
 });

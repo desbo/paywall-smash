@@ -34,10 +34,8 @@ const Game = React.createClass({
   },
 
   render() {
-    return (this.state.state === NAME_ENTRY
-      ? <NameEntry onSubmit={this.setName} />
-      : <Wall bricks={this.props.bricks} name={this.state.name} destroyed={destroyed} />);
+    return <Wall bricks={this.props.bricks} name={this.state.name} destroyed={destroyed} master={true} />;
   }
 });
 
-ReactDOM.render(<Game bricks={arr}/>, document.getElementById('wall'));
+ReactDOM.render(<Game bricks={arr}/>, document.getElementById('master'));
