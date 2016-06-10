@@ -42,7 +42,10 @@ io.on('connection', function (socket) {
     scores: scores
   });
 
-  socket.on('start', () => io.emit('start'));
+  socket.on('start', () => {
+    active = true;
+    io.emit('start')
+  });
 
   socket.on('stop', () => {
     active = false;
