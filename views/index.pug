@@ -11,6 +11,11 @@ html
     script(src="https://fb.me/react-15.1.0.js")
     script(src="https://fb.me/react-dom-15.1.0.js")
     script(src="/socket.io/socket.io.js")
-    script(src="/jspm_packages/system.js")
-    script(src="/config.js")
-    script(src="/js/go.js")
+
+
+    if env == 'production'
+        script(src='/js/build.js')
+    else
+        script(src="/jspm_packages/system.js")
+        script(src="/config.js")
+        script(src="/js/go.js")
