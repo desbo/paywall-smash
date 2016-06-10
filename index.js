@@ -14,7 +14,7 @@ app.use(express.static('static'));
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-  res.render('index', { env: NODE_ENV });
+  res.render('index', { env: process.env.NODE_ENV });
 });
 
 app.get('/controls', (req, res) => {
