@@ -1,18 +1,23 @@
-import Brick from './brick.jsx!'
+import Brick from './brick.jsx!';
+import socket from '../socket';
 
-const Wall = (props) => {
-  const bricks = 1000;
-  const arr = [];
+const Wall = React.createClass({
+  destroyBrick(x) {
+    return socket.emit('smash', {
+      brick: x,
+      player: this.props.name
+    });
+  },
 
-  for (var i = 0; i < bricks; i++) {
-    arr.push(i);
+  render() {
+    return (
+      <div className="wall">
+        {this.props.bricks.map(x =>
+          <Brick key={x} num={x} onClick={this.destroyBrick.bind(this, x)} />
+        )}
+      </div>
+    );
   }
-
-  return (
-    <div className="wall">
-      {arr.map(i => <Brick num={i} key={i}/>)}
-    </div>);
-}
-
+});
 
 export default Wall;
