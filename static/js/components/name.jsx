@@ -25,11 +25,14 @@ const NameEntry = React.createClass({
                   placeholder="enter your name" />
         </section>
 
-        <section className="submit-button">
-          <div>
-            <button onClick={this.submit}>PLAY</button>
-          </div>
-        </section>
+
+          <section className="submit-button">
+            {this.state.name &&
+            <div>
+              <button onClick={this.submit}>PLAY</button>
+            </div>
+            }
+          </section>
       </div>
     );
   }

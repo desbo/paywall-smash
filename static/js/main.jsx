@@ -4,7 +4,7 @@ import Wall from './components/wall.jsx!';
 const NAME_ENTRY = 0;
 const GAME = 1;
 
-const numBricks = 1000;
+const numBricks = 500;
 const arr = [];
 
 for (var i = 0; i < numBricks; i++) {
@@ -27,7 +27,7 @@ const Game = React.createClass({
   },
 
   render() {
-    return (this.state.state !== NAME_ENTRY
+    return (this.state.state === NAME_ENTRY
       ? <NameEntry onSubmit={this.setName} />
       : <Wall bricks={this.props.bricks} name={this.state.name} />);
   }

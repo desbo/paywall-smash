@@ -23,6 +23,7 @@ main
   display: flex
   flex-wrap: wrap
   align-items: stretch
+  background-image: url('/img/guardian.png')
 
 .brick
   border: 2px solid tan
@@ -30,7 +31,7 @@ main
   flex: 1 0 $brick-width / $brick-shrink
   height: $brick-height / $brick-shrink
   opacity: 1
-  transition: opacity 0ms ease-in-out
+  transition: opacity 25ms ease-in-out
 
   &:hover
    cursor: pointer
@@ -59,5 +60,8 @@ main
     font-size: 80px
 
 .submit-button
+  width: 100%
+  height: 50%
+  background-color: white
   text-align: center
   zoom: 2
