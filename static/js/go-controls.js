@@ -3,4 +3,4 @@ System.config({
 });
 
 // loads /app/main.js
-System.import('js/master.jsx!');
+System.import('js/controls.jsx!');

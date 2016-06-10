@@ -14,16 +14,45 @@ for (var i = 0; i < numBricks; i++) {
 
 let destroyed = [];
 
-socket.on('init', event => {
-  destroyed = event.destroyed;
-});
-
 const Game = React.createClass({
   getInitialState() {
-      return {
-          state: NAME_ENTRY,
-          name: ''
-      };
+    return {
+      active: true,
+      state: NAME_ENTRY,
+      name: '',
+      destroyed: [],
+      scores: {}
+    };
+  },
+
+
+  componentDidMount() {
+    socket.on('reset', () => {
+      return this.setState({
+        active: true,
+        destroyed: [],
+        scores: {}
+      });
+    });
+
+    socket.on('init', event => {
+      this.setState({
+        destroyed: event.destroyed,
+        active: event.active,
+        scores: event.scores
+      });
+    });
+
+    socket.on('start', () => {
+      this.setState({ active: true });
+    });
+
+    socket.on('stop', event => {
+      this.setState({
+        active: false,
+        scores: event.scores
+      });
+    });
   },
 
   setName(name) {
@@ -36,7 +65,11 @@ const Game = React.createClass({
   render() {
     return (this.state.state === NAME_ENTRY
       ? <NameEntry onSubmit={this.setName} />
-      : <Wall bricks={this.props.bricks} name={this.state.name} destroyed={destroyed} />);
+      : <Wall active={this.state.active}
+              scores={this.state.scores}
+              bricks={this.props.bricks}
+              name={this.state.name}
+              destroyed={this.state.destroyed} />);
   }
 });
 
