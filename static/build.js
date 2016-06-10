@@ -730,7 +730,7 @@ System.register('js/components/name.jsx!github:floatdrop/plugin-jsx@1.2.1', ['js
 
         render: function render() {
           return React.createElement("div", null, React.createElement("section", { className: "name-entry" }, React.createElement("input", { value: this.state.name, onChange: this.updateName,
-            placeholder: "enter your name" })), React.createElement("section", { className: "submit-button" }, this.state.name && React.createElement("div", null, React.createElement("button", { onClick: this.submit }, "PLAY"))));
+            placeholder: "enter your name" })), React.createElement("section", { className: "submit-button" }, this.props.active && this.state.name && React.createElement("div", null, React.createElement("button", { onClick: this.submit }, "PLAY"))));
         }
       });
 
@@ -835,7 +835,7 @@ System.register('js/main.jsx!github:floatdrop/plugin-jsx@1.2.1', ['js/components
       Game = React.createClass({ displayName: "Game",
         getInitialState: function getInitialState() {
           return {
-            active: true,
+            active: false,
             state: NAME_ENTRY,
             name: '',
             destroyed: [],
@@ -882,7 +882,7 @@ System.register('js/main.jsx!github:floatdrop/plugin-jsx@1.2.1', ['js/components
         },
 
         render: function render() {
-          return this.state.state === NAME_ENTRY ? React.createElement(NameEntry, { onSubmit: this.setName }) : React.createElement(Wall, { active: this.state.active,
+          return this.state.state === NAME_ENTRY ? React.createElement(NameEntry, { active: this.state.active, onSubmit: this.setName }) : React.createElement(Wall, { active: this.state.active,
             scores: this.state.scores,
             bricks: this.props.bricks,
             name: this.state.name,

@@ -27,7 +27,7 @@ const NameEntry = React.createClass({
 
 
           <section className="submit-button">
-            {this.state.name &&
+            {this.props.active && this.state.name &&
             <div>
               <button onClick={this.submit}>PLAY</button>
             </div>

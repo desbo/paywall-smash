@@ -17,7 +17,7 @@ let destroyed = [];
 const Game = React.createClass({
   getInitialState() {
     return {
-      active: true,
+      active: false,
       state: NAME_ENTRY,
       name: '',
       destroyed: [],
@@ -64,7 +64,7 @@ const Game = React.createClass({
 
   render() {
     return (this.state.state === NAME_ENTRY
-      ? <NameEntry onSubmit={this.setName} />
+      ? <NameEntry active={this.state.active} onSubmit={this.setName} />
       : <Wall active={this.state.active}
               scores={this.state.scores}
               bricks={this.props.bricks}
