@@ -12,9 +12,10 @@ const Wall = React.createClass({
   render() {
     return (
       <div className="wall">
-        {this.props.bricks.map(x =>
-          <Brick key={x} num={x} onClick={this.destroyBrick.bind(this, x)} />
-        )}
+        {this.props.bricks.map(x => {
+          const destroyed = this.props.destroyed.indexOf(x) !== -1;
+          return <Brick key={x} num={x} onClick={this.destroyBrick.bind(this, x)} destroyed={destroyed} />
+        })}
       </div>
     );
   }

@@ -39,7 +39,7 @@ const Brick = React.createClass({
     const offset = row % 2 === 0;
 
     return (
-      <div className={'brick ' + (this.state.destroyed ? 'destroyed ' : '') + (offset ? 'offset' : '')}
+      <div className={'brick ' + ((this.props.destroyed || this.state.destroyed) ? 'destroyed ' : '') + (offset ? 'offset' : '')}
            onClick={this.handleClick}></div>
     );
   }

@@ -1,5 +1,6 @@
 import NameEntry from './components/name.jsx!';
 import Wall from './components/wall.jsx!';
+import socket from './socket';
 
 const NAME_ENTRY = 0;
 const GAME = 1;
@@ -10,6 +11,12 @@ const arr = [];
 for (var i = 0; i < numBricks; i++) {
   arr.push(i);
 }
+
+let destroyed;
+
+socket.on('init', event => {
+  destroyed = event.destroyed;
+});
 
 const Game = React.createClass({
   getInitialState() {
@@ -29,7 +36,7 @@ const Game = React.createClass({
   render() {
     return (this.state.state === NAME_ENTRY
       ? <NameEntry onSubmit={this.setName} />
-      : <Wall bricks={this.props.bricks} name={this.state.name} />);
+      : <Wall bricks={this.props.bricks} name={this.state.name} destroyed={destroyed} />);
   }
 });
 
