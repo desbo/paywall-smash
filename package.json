@@ -17,8 +17,9 @@
     "gulp-sass": "^2.3.1"
   },
   "dependencies": {
-    "socket.io": "^1.4.6", 
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "pug": "^2.0.0-beta2",
+    "socket.io": "^1.4.6"
   },
   "jspm": {
     "directories": {
